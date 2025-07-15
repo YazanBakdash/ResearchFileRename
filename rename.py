@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-data_dir = Path("data copy")#Path("2021")
+data_dir = Path("2021")
 df = pd.read_excel("Legend for LOAD100.xlsx")
 mapping = dict(zip(df['Subject ID #'],df['Sort Order #']))
 
