@@ -1,7 +1,8 @@
 from pathlib import Path
 import pandas as pd
 
-data_dir = Path("2021")
+user_input = input("Enter the data folder name to modify: ")
+data_dir = Path(user_input)
 df = pd.read_excel("Legend for LOAD100.xlsx")
 mapping = dict(zip(df['Subject ID #'],df['Sort Order #']))
 
@@ -18,6 +19,7 @@ def rename(dir):
         if s.isdigit() and int(s) in mapping:
             new_id = mapping[int(s)]
             new_name = name[:i] + "#" + str(new_id) + name[i+5:]
+            break
     
     if new_name == "":
         return -1
